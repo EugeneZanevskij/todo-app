@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+.input-container {
+  margin-top: 20px;
+}
+
+.todo-input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+}
+
+.add-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
