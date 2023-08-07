@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
+import TodoInput from './components/TodoInput';
 
 function App() {
   const [todo, setTodo] = useState("");
@@ -13,16 +14,7 @@ function App() {
   return (
     <div className="App">
       <h1>ToDo App</h1>
-      <div className="input-container">
-        <input 
-          className="todo-input"
-          type="text"
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
-          placeholder="What needs to be done?" 
-        />
-        <button className="add-button" onClick={addTodo}>Add</button>
-      </div>
+      <TodoInput todo={todo} setTodo={setTodo} addTodo={addTodo} />
     </div>
   );
 }
