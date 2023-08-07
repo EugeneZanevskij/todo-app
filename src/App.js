@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
@@ -6,14 +6,30 @@ import TodoList from './components/TodoList';
 function App() {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+  const storedTodos = JSON.parse(localStorage.getItem("todos") || "[]");
+  if (storedTodos.length > 0) {
+    setTodos(storedTodos);
+  }
+}, []);
+
+
+  useEffect(() => {
+    // Save todos to localStorage whenever the todos state changes
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   function addTodo() {
     if (todo !== "") {
       setTodos([todo, ...todos]);
       setTodo("");
     }
   }
-  function deleteTodo(chosen) {
-    setTodos(todos.filter(todo => todo !== chosen));
+
+  function deleteTodo(todo) {
+    const updatedTodos = todos.filter((item) => item !== todo);
+    setTodos(updatedTodos);
   }
   return (
     <div className="App">
