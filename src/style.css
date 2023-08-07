@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin: 2rem auto;
+  width: 30rem;
 }
 
 .input-container {
@@ -15,6 +17,33 @@
 .add-button {
   padding: 10px;
   background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem;
+}
+
+.todo-item {
+  display: block;
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+  margin-bottom: 10px;
+}
+
+.todo-delete {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #ff0000;
   color: #fff;
   border: none;
   cursor: pointer;
